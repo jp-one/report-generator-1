@@ -1,75 +1,100 @@
 # report-generator-1
 
-## Install
+A Python-based report generation toolkit supporting ODT and DOCX templates, with FastAPI integration and Docker compatibility.  
+Includes support for Relatorio, a templating library capable of generating various document formats such as ODT, ODS, PNG, SVG, and more.
 
-To install the package from the remote GitHub repository, use the following command:
+---
 
-```bash
-sudo pip3 install --upgrade git+https://github.com/jp-one/report-generator-1.git --root-user-action=ignore
-```
+## Installation
 
-This command will:
-1. Use pip3 to install or upgrade the package.
-1. Retrieve the package from the specified GitHub repository URL.
-1. Ignore any actions that require root user permissions.
+### Install from Remote Repository
 
-## Install (local)
-
-To install the package locally, follow these steps:
+To install the latest version directly from GitHub, run:
 
 ```bash
-
-sudo pip3 install --upgrade build pip
-sudo pip3 uninstall -y rptgen1
-
-cd code
-python -m build
-sudo pip3 install --upgrade . --root-user-action=ignore
-
+pip3 install --upgrade git+https://github.com/jp-one/report-generator-1.git
 ```
 
-These commands should be run in the code directory, which in the Docker environment is located at /home/vscode/dev/code.
+### Local Installation (Development)
 
-This sequence of commands will:
-1. Use pip3 to upgrade the build and pip packages.
-1. Uninstall any existing rptgen1 package.
-1. Change the directory to code.
-1. Build the package using Python's build module.
-1. Install the newly built package locally while ignoring any root user actions.
+If you want to install from your local source (for development or testing):
 
-## Unit test - pytest
+```bash
+pip3 uninstall -y rptgen1          # Remove any previous installation
+cd code                            # Enter the source directory
+python3 -m build                   # Build the package
+pip3 install --upgrade .           # Install the built package
+```
+> **Note:** If you are using Docker, make sure you run these commands inside the `/home/vscode/dev/code` directory.
 
-To run the unit tests using pytest, navigate to the tests directory and execute pytest:
+---
+
+## Running Unit Tests
+
+Unit tests are written using `pytest`. To execute all tests and save results:
 
 ```bash
 cd code/tests
 pytest
 ```
 
-The generated files from the tests will be saved in the `tests/result` directory.
+- Test results and logs are saved in the `tests/result` directory.
+- You can customize test runs with additional pytest options, e.g. `pytest -v` for verbose output.
 
-## Example - FastAPI Report Engine
+---
 
-To run the FastAPI example for the Report Engine, follow these steps:
+## FastAPI Report Engine Example
+
+A sample FastAPI server is provided to demonstrate report generation via API.
+
+To start the example server:
 
 ```bash
 cd code/example/fastapi-report-engine
-python main.py
+python3 main.py
 ```
-Once the server is running, you can access the documentation for the API using one of the following URLs:
 
-1. http://localhost/docs
-1. http://localhost:8002/docs
+Once running, you can access the interactive API documentation at:
 
-These URLs provide an interactive interface where you can test the endpoints and see the available functionalities of the FastAPI Report Engine.
+- [http://localhost/docs](http://localhost/docs)
+- [http://localhost:8002/docs](http://localhost:8002/docs)
 
-# Credits
+Use these endpoints to test report generation and explore available API features.
 
-This project uses the following libraries:
+---
 
-- [python-odt-template](https://github.com/Tobi-De/python-odt-template) by Tobi-De
-- [python-docx-template](https://github.com/elapouya/python-docx-template) by elapouya
-- [unoserver](https://github.com/unoconv/unoserver) by unoconv
-- [unoserver-docker](https://github.com/unoconv/unoserver-docker) by unoconv
+## Project Structure
 
-The developers and maintainers of these libraries are gratefully acknowledged for their contributions to the open-source community.
+- `code/src/rptgen1/` — Main source code and package files
+- `code/tests/` — Unit tests and test data
+- `code/example/fastapi-report-engine/` — FastAPI example server
+
+---
+
+## Dependencies
+
+This project relies on the following open-source libraries:
+
+- [python-odt-template](https://github.com/Tobi-De/python-odt-template) — ODT template rendering
+- [python-docx-template](https://github.com/elapouya/python-docx-template) — DOCX template rendering
+- [relatorio](https://pypi.org/project/relatorio/) — templating engine for generating documents
+- [unoserver](https://github.com/unoconv/unoserver) — LibreOffice server for document conversion
+- [unoserver-docker](https://github.com/unoconv/unoserver-docker) — Dockerized unoserver for container environments
+
+---
+
+## Contributing
+
+Contributions are welcome! Please submit issues or pull requests via GitHub.
+
+---
+
+## License
+
+See the `LICENSE` file for details.
+
+---
+
+## Acknowledgements
+
+Thanks to the open-source community for their

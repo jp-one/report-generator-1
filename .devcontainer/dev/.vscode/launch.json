@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "report engine",
+            "name": "Example: Fastapi Report Engine",
             "type": "debugpy",
             "request": "launch",
             "cwd": "${workspaceFolder}/code/example/fastapi-report-engine",

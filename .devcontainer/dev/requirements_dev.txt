@@ -1,3 +1,5 @@
+pip
+build
 fastapi
 python-multipart
 pydantic
